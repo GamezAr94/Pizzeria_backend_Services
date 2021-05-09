@@ -1,0 +1,64 @@
+{
+    "Pizza_types":[
+        {
+            "pizza_type" : "Pepperoni",
+            "url" : "http://localhost:3000/pepperoni.jpg",
+            "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+            "pizza_type" : "Napolitan",
+            "url" : "http://localhost:3000/neapolitan.jpg",
+            "description" : "Etiam dignissim placerat elit, ac sagittis nisl ornare at."
+        },
+        {
+            "pizza_type" : "Detroit",
+            "url" : "http://localhost:3000/detroit.jpg",
+            "description" : "In finibus varius nulla id porta."
+        }
+    ],
+    "Sizes":[
+        {
+            "size" : "Small",
+            "inch" : "12\"",
+            "price" : 0.1
+        },
+        {
+            "size" : "Medium",
+            "inch" : "16\"",
+            "price" : 0.2
+        },
+        {
+            "size" : "Large",
+            "inch" : "20\"",
+            "price" : 0.3
+        },
+        {
+            "size" : "Giant",
+            "inch" : "30\"",
+            "price" : 0.4
+        }
+    ],
+    "Toppings": [
+        {
+            "topping" : "Spicy",
+            "price" : 0.5
+        },
+        {
+            "topping" : "Ketchup",
+            "price" : 0.6
+        },
+        {
+            "topping" : "X-Cheese",
+            "price" : 0.7
+        },
+        {
+            "topping" : "Mustard",
+            "price" : 0.8
+        },
+        {
+            "topping" : "X-Crisp",
+            "price" : 0.9
+        }
+    ]
+}
+
