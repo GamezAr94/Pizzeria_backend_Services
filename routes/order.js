@@ -45,7 +45,16 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    res.render('order', { title: 'Bongiorno Pizzeria', order_received: "Order received", info_order : order.first_name + " " + order.last_name});
+    var date = new Date();
+    var minutes = date.getMinutes()+30;
+    var hours = date.getHours() + Math.floor(minutes / 60);
+
+    res.render('order', {
+        title: 'Bongiorno Pizzeria',
+        order_received: "Order received " + order.first_name + " " + order.last_name,
+        info_order: "Your order will be ready at ",
+        time: hours + ":" + minutes
+    });
 });
 
 
