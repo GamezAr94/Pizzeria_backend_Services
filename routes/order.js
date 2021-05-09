@@ -10,15 +10,10 @@ var error = require('../public/javascripts/error');
 
 let order;
 
-router.post('/', function (req, res, next) {
-    res.render('order', { order_received: "Order received", info_order : order.first_name + " " + order.last_name});
-});
-
-
 /* POST order page. */
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
 
-    order = new Order(req.query.type, req.query.size, req.query.toppings, req.query.first_name, req.query.last_name, req.query.address, phoneFormatter.normalize(req.query.phone), req.query.qtty);
+    order = new Order(req.body.type, req.body.size, req.body.toppings, req.body.first_name, req.body.last_name, req.body.address, phoneFormatter.normalize(req.body.phone), req.body.qtty);
 
     let error_messages = error.error_finder(order.pizza_type, order.pizza_size, order.address, order.phone, order.qtty);
 
@@ -48,5 +43,11 @@ router.get('/', function (req, res, next) {
 
     }
 });
+
+router.get('/', function (req, res, next) {
+    res.render('order', { title: 'Bongiorno Pizzeria', order_received: "Order received", info_order : order.first_name + " " + order.last_name});
+});
+
+
 
 module.exports = router;
