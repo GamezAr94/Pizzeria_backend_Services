@@ -1,23 +1,25 @@
 var express = require('express');
 var router = express.Router();
+var Order = require('../models/Order')
 
 var order = {};
 
-/* POST order page. */
+router.get('/api/order', function(req, res, next) {
+    console.log("AQUI ");
+    res.render('index');
+  });
+
+
 router.post('/', function(req, res, next) {
+    res.render('order',{ order_received : "Order received" });
+  });
 
-    order = {
-        pizza_type: req.body.type,
-        pizza_size: req.body.size,
-        toppings: req.body.toppings,
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        address: req.body.address,
-        phone: req.body.phone,
-        qtty: req.body.qtty,
-    };
+/* POST order page. */
+router.get('/', function(req, res, next) {
 
-    res.render('order', { title : 'Bongiorno Pizzeria', 
+    let order = new Order(req.query.type, req.query.size, req.query.toppings, req.query.first_name, req.query.last_name, req.query.address, req.query.phone, req.query.qtty);
+
+    res.render('order', {title : 'Bongiorno Pizzeria', 
                                         pizza_type : order.pizza_type, 
                                         pizza_size : order.pizza_size,
                                         toppings : order.toppings, 
@@ -29,5 +31,4 @@ router.post('/', function(req, res, next) {
                                         total : 0 });
 });
 
-module.exports = order;
 module.exports = router;
