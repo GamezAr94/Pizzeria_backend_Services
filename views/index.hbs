@@ -1,2 +1,34 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<form method="POST" action="/order">
+    <fieldset id="type_pizza">
+        <legend>Start selecting your pizza...</legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Select the size and Quantity</legend>
+    </fieldset>
+
+    <div class="qtty">
+        <label for="qtty">Quantity</label>
+        <input type="number" name="qtty" id="qtty" placeholder="Quantity of Pizzas" value="1" step="1" min="1"
+            max="3000">
+    </div>
+
+    <fieldset>
+        <legend>Select what kind of toppings would you like</legend>
+    </fieldset>
+
+    <fieldset class="column">
+        <legend>Contact Info</legend>
+
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name">
+        <input type="text" name="address" placeholder="Address">
+        <input type="text" name="phone" placeholder="Phone XXX-XXX-XXXX" maxlength="20">
+    </fieldset>
+
+    <input id="submit" type="submit" name="submit" value="Next">
+
+</form>
