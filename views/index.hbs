@@ -1,5 +1,12 @@
 <h1>{{title}}</h1>
 
+{{#if error}}
+
+<div id="error_display">
+    <p>Please Try Agian!</p>
+    <p>{{error}}</p>
+</div>
+{{/if}}
 
 <form method="GET" action="/api/order">
     <fieldset id="type_pizza">
