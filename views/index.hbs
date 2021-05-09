@@ -4,10 +4,26 @@
 <form method="POST" action="/order">
     <fieldset id="type_pizza">
         <legend>Start selecting your pizza...</legend>
+        {{#each pizza_builder.Pizza_types}}
+        <div class="container">
+            <img src="{{url}}" alt="Pepperoni pizza">
+            <div>
+                <input type="radio" name="type" id="{{pizza_type}}" value="{{pizza_type}}">
+                <label for="{{pizza_type}}">{{pizza_type}}</label>
+            </div>
+            <p>{{description}}</p>
+        </div>
+        {{/each}}
     </fieldset>
 
     <fieldset>
         <legend>Select the size and Quantity</legend>
+        {{#each pizza_builder.Sizes}}
+        <div>
+            <input type="radio" name="size" id="{{size}}" value="{{size}}">
+            <label for="{{size}}">{{size}} - ${{price}}</label>
+        </div>
+        {{/each}}
     </fieldset>
 
     <div class="qtty">
@@ -18,6 +34,12 @@
 
     <fieldset>
         <legend>Select what kind of toppings would you like</legend>
+        {{#each pizza_builder.Toppings}}
+        <div>
+            <input type="checkbox" id="{{topping}}" name="toppings" value="{{topping}}">
+            <label for="{{topping}}">{{topping}} - ${{price}}</label>
+        </div>
+        {{/each}}
     </fieldset>
 
     <fieldset class="column">

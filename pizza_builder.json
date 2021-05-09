@@ -2,17 +2,17 @@
     "Pizza_types":[
         {
             "pizza_type" : "Pepperoni",
-            "url" : "http://localhost:3000/pepperoni.jpg",
+            "url" : "http://localhost:3000/images/pepperoni.jpg",
             "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         },
         {
             "pizza_type" : "Napolitan",
-            "url" : "http://localhost:3000/neapolitan.jpg",
+            "url" : "http://localhost:3000/images/neapolitan.jpg",
             "description" : "Etiam dignissim placerat elit, ac sagittis nisl ornare at."
         },
         {
             "pizza_type" : "Detroit",
-            "url" : "http://localhost:3000/detroit.jpg",
+            "url" : "http://localhost:3000/images/detroit.jpg",
             "description" : "In finibus varius nulla id porta."
         }
     ],
