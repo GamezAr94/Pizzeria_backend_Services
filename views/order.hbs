@@ -30,7 +30,7 @@
 
             <div class="line">
                 <p>Client Name:</p>
-                <p> {{first_name}} {{last_name}}</p>
+                <p> {{fullName}}</p>
             </div>
 
             <div class="line">
@@ -65,12 +65,12 @@
 
 {{/unless}}
 
-{{#if order_received}}
+{{#if full_name}}
 
 <div id="success">
 
-    <h3>{{order_received}}</h3>
-    <p>{{info_order}} <b>{{time}}</b></p>
+    <h3>{{order_received}} {{full_name}}!</h3>
+    <p>{{info_order}}<b>{{time}}</b></p>
     <h1>Thank you!</h1>
 
     <div id="confirm">

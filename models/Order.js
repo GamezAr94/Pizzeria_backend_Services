@@ -1,4 +1,5 @@
 
+
 module.exports = class Order {
     constructor(pizza_type, pizza_size, toppings, first_name, last_name, address, phone, qtty) {
         this.pizza_type = pizza_type;
