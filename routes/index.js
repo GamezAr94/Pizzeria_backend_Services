@@ -9,8 +9,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Bongiorno Pizzeria',  pizza_builder});
 });
 
-router.post('/', function(req, res, next) {
-  res.render('index', { title: 'Bongiorno Pizzeria',  pizza_builder});
-});
-
 module.exports = router;

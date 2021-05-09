@@ -1,87 +1,84 @@
 <h1>{{title}}</h1>
 
 {{#unless order_received}}
-    <form method="POST" action="/api/confirm">
+<form method="POST" action="/api/confirm">
 
-        <fieldset class="column">
+    <fieldset class="column">
 
-            <legend>Review your order</legend>
+        <legend>Review your order</legend>
 
-            <div>
-                <div class="line">
-                    <p>Pizza Type: </p>
-                    <p>{{pizza_type}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Pizza Size: </p>
-                    <p>{{pizza_size}}</p>
-                </div>
-
-                <div class="line">
-                    <p>How many pizzas:</p>
-                    <p> {{qtty}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Pizza toppings:</p>
-                    <p> {{toppings}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Client Name:</p>
-                    <p> {{first_name}} {{last_name}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Address:</p>
-                    <p> {{address}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Phone:</p>
-                    <p> {{phone}}</p>
-                </div>
-
-                <div class="line">
-                    <p>Total:</p>
-                    <p><b>${{total}}</b></p>
-                </div>
-
+        <div>
+            <div class="line">
+                <p>Pizza Type: </p>
+                <p>{{pizza_type}}</p>
             </div>
 
-        </fieldset>
+            <div class="line">
+                <p>Pizza Size: </p>
+                <p>{{pizza_size}}</p>
+            </div>
 
-        <input id="confirm" type="submit" name="confirm" value="Confirm Order">
+            <div class="line">
+                <p>How many pizzas:</p>
+                <p> {{qtty}}</p>
+            </div>
 
-    </form>
+            <div class="line">
+                <p>Pizza toppings:</p>
+                <p> {{toppings}}</p>
+            </div>
 
-    <!-- 
+            <div class="line">
+                <p>Client Name:</p>
+                <p> {{first_name}} {{last_name}}</p>
+            </div>
+
+            <div class="line">
+                <p>Address:</p>
+                <p> {{address}}</p>
+            </div>
+
+            <div class="line">
+                <p>Phone:</p>
+                <p> {{phone}}</p>
+            </div>
+
+            <div class="line">
+                <p>Total:</p>
+                <p><b>${{total}}</b></p>
+            </div>
+
+        </div>
+
+    </fieldset>
+
+    <input id="confirm" type="submit" name="confirm" value="Confirm Order">
+
+</form>
+
+<!-- 
                 input to cancel the order and go back to the main page
             -->
-    <form action="/" method="POST" id="cancel_form">
+<div id="cancel_form">
+    <a class="nav-link" href="/">Cancel Order</a>
+</div>
 
-        <input id="cancel" type="submit" name="cancel" value="Cancel Order" class="cancel">
-
-    </form>
 {{/unless}}
 
 {{#if order_received}}
 
-        <div id="success">
+<div id="success">
 
-            <h3>{{order_received}}</h3>
-            <p>{{info_order}} <b>{{time}}</b></p>
-            <h1>Thank you!</h1>
+    <h3>{{order_received}}</h3>
+    <p>{{info_order}} <b>{{time}}</b></p>
+    <h1>Thank you!</h1>
 
-            <form action="/" method="POST">
+    <div id="confirm">
+        <a class="nav-link" id="button" href="/">Home</a>
+    </div>
 
-                <input id="confirm" type="submit" name="order_completed" value="Home">
+    <img id="logo" src="http://localhost:3000/images/pizza.png" alt="logo">
 
-            </form>
+</div>
 
-            <img id="logo" src="http://localhost:3000/images/pizza.png" alt="logo">
-
-        </div>
-
-    {{/if}}
+{{/if}}
