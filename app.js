@@ -10,6 +10,30 @@ var orderRouter = require('./routes/order');
 
 var app = express();
 
+
+//MOngoDB COnnectivity
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/a0012345', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+db.on('error', () => {
+  console.log('Failed to connect to mongodb. Exiting...');
+  process.exit(1);
+});
+db.once('open', function () {
+  // we're connected!
+  console.log('Connected to mongodb instance');
+});
+
+process.on('SIGINT', () => {
+  console.log("Stopping the app....");
+  mongoose.connection.close((err) => {
+    console.log("Shutting down.....");
+  });
+});
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

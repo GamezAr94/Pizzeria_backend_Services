@@ -4,7 +4,7 @@ const pizza_builder = require('../../pizza_builder.json');
 // function to validate if the argument passed is a valid phone
 exports.phone_validator = function (phone) {
 
-    if (phone.trim().length != 10) {
+    if (phone == undefined || phone.trim().length != 10) {
 
         return false
 

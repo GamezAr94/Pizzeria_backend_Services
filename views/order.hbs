@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 
 {{#unless order_received}}
-<form method="GET" action="/api/confirm">
+<form method="POST" action="/api/confirm">
 
     <fieldset class="column">
 
@@ -10,22 +10,22 @@
         <div>
             <div class="line">
                 <p>Pizza Type: </p>
-                <p>{{pizza_type}}</p>
+                <p>{{order.type}}</p>
             </div>
 
             <div class="line">
                 <p>Pizza Size: </p>
-                <p>{{pizza_size}}</p>
+                <p>{{order.size}}</p>
             </div>
 
             <div class="line">
                 <p>How many pizzas:</p>
-                <p> {{qtty}}</p>
+                <p> {{order.qtty}}</p>
             </div>
 
             <div class="line">
                 <p>Pizza toppings:</p>
-                <p> {{toppings}}</p>
+                <p>{{order.toppings}}</p>
             </div>
 
             <div class="line">
@@ -35,7 +35,7 @@
 
             <div class="line">
                 <p>Address:</p>
-                <p> {{address}}</p>
+                <p> {{order.address}}</p>
             </div>
 
             <div class="line">
