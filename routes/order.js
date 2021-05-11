@@ -10,16 +10,14 @@ var error = require('../public/javascripts/error');
 
 let order;
 
-/* POST order page. */
+/* GET order page. */
 router.get('/', function (req, res, next) {
-/**/
+
     let orderBody = req.query;
 
     order = new Order(orderBody);
-
-    //let order = new Order(req.query.type, req.query.size, req.query.toppings, req.query.first_name, req.query.last_name, req.query.address, phoneFormatter.normalize(req.query.phone), req.query.qtty);
-
-    let error_messages = error.error_finder(order.type, order.size, order.address, order.phone, order.qtty);
+    
+    let error_messages = error.error_finder(order.type, order.size, order.address, phoneFormatter.normalize(order.phone), order.qtty);
 
     if (error_messages.length > 0) {
         console.log(order.phone);
@@ -42,24 +40,20 @@ router.get('/', function (req, res, next) {
         phone: phoneFormatter.format(order.phone, "NNN-NNN-NNNN"), 
         total: (Math.round(total_price * 100) / 100).toFixed(2),
         fullName: fullName });
-/*
-        res.render('order', {
-            title: 'Bongiorno Pizzeria',
-            pizza_type: order.type,
-            pizza_size: order.size,
-            toppings: order.toppings,
-            fullName: fullName,
-            address: order.address,
-            phone: phoneFormatter.format(order.phone, "NNN-NNN-NNNN"),
-            qtty: order.qtty,
-            total: (Math.round(total_price * 100) / 100).toFixed(2)
-        });
-        */
     }
 });
 
+
 router.post('/', function (req, res, next) {
     var date = new Date();
+
+    order.save((err) => {
+        if (err) {
+            res.status(500).json({ status: 'Failed to save the course' });
+            return;
+        }
+    });
+
     var minutes = date.getMinutes()+30;
     var hours = date.getHours() + Math.floor(minutes / 60);
     minutes = minutes - (Math.floor(minutes / 60)*60)
